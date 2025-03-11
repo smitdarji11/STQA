@@ -1,0 +1,20 @@
+#include <GUIConstantsEx.au3>
+
+$hGUI = GUICreate("File Path Finder", 400, 120)
+$inputPath = GUICtrlCreateInput("", 20, 30, 360, 20)
+$btnBrowse = GUICtrlCreateButton("Browse", 20, 70, 80, 30)
+$btnClear = GUICtrlCreateButton("Clear", 120, 70, 80, 30)
+GUISetState(@SW_SHOW)
+
+While 1
+    Switch GUIGetMsg()
+        Case $GUI_EVENT_CLOSE
+            Exit
+        Case $btnBrowse
+            Local $filePath = FileOpenDialog("Select a file", @DesktopDir, "All Files (*.*)", 1)
+            If Not @error Then GUICtrlSetData($inputPath, $filePath)
+        Case $btnClear
+            GUICtrlSetData($inputPath, "")
+    EndSwitch
+WEnd
+   
