@@ -1,0 +1,22 @@
+HotKeySet("^!n","OpenNotepad")
+HotKeySet("^!b","OpenFolder")
+HotKeySet("^!e","ExitScript")
+
+while 1
+	Sleep(100);
+Wend
+
+func OpenNotepad()
+	Run("Notepad");
+
+EndFunc
+
+func OpenFolder()
+	Run("explorer.exe C:\Your\Folder\Path");
+EndFunc
+
+Func ExitScript()
+	exit;
+EndFunc
+
+
